@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<VBox spacing="15.0" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MainController">
+    <children>
+        <Label text="Student Management System" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+
+        <!-- Form Section -->
+        <VBox spacing="10.0" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-padding: 15;">
+            <Label text="Add / Update Student" style="-fx-font-size: 14; -fx-font-weight: bold;" />
+
+            <HBox spacing="10.0">
+                <Label text="Matricule:" style="-fx-min-width: 100;" />
+                <TextField fx:id="matriculeField" prefWidth="240.0" promptText="Enter matricule" />
+            </HBox>
+
+            <HBox spacing="10.0">
+                <Label text="Nom:" style="-fx-min-width: 100;" />
+                <TextField fx:id="nomField" prefWidth="240.0" promptText="Enter student name" />
+            </HBox>
+
+            <HBox spacing="10.0">
+                <Label text="Adresse:" style="-fx-min-width: 100;" />
+                <TextField fx:id="adresseField" prefWidth="240.0" promptText="Enter address" />
+            </HBox>
+
+            <HBox spacing="10.0">
+                <Label text="Age:" style="-fx-min-width: 100;" />
+                <TextField fx:id="ageField" prefWidth="240.0" promptText="Enter age" />
+            </HBox>
+
+            <HBox spacing="10.0">
+                <Label text="Departement:" style="-fx-min-width: 100;" />
+                <ComboBox fx:id="departementCombo" prefWidth="240.0" promptText="Select departement" />
+            </HBox>
+
+            <!-- Buttons Section -->
+            <HBox spacing="10.0" style="-fx-padding: 10 0 0 0;">
+                <Button text="New Student" style="-fx-padding: 8 20;" onAction="#handleNewStudent" />
+                <Button text="Add Student" style="-fx-padding: 8 20;" onAction="#handleAdd" />
+                <Button text="Update Student" style="-fx-padding: 8 20;" onAction="#handleUpdate" />
+                <Button text="Delete Student" style="-fx-padding: 8 20;" onAction="#handleDelete" />
+                <Button text="Show Details" style="-fx-padding: 8 20;" onAction="#handleShow" />
+            </HBox>
+        </VBox>
+
+        <!-- Table Section -->
+        <VBox spacing="10.0" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-padding: 15;" VBox.vgrow="ALWAYS">
+            <Label text="Student List" style="-fx-font-size: 14; -fx-font-weight: bold;" />
+            <HBox spacing="10.0">
+                <TextField fx:id="searchField" prefWidth="240.0" promptText="Search by matricule, nom or adresse" />
+                <Button text="Search" style="-fx-padding: 6 16;" onAction="#handleSearch" />
+                <Button text="Afficher" style="-fx-padding: 6 16;" onAction="#handleAfficher" />
+                <Button fx:id="prevPageButton" text="Précédent" style="-fx-padding: 6 16;" onAction="#handlePrevPage" />
+                <Button fx:id="nextPageButton" text="Suivant" style="-fx-padding: 6 16;" onAction="#handleNextPage" />
+            </HBox>
+
+            <TableView fx:id="studentTable" prefHeight="300.0" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn text="Matricule" prefWidth="120.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="matricule" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Nom" prefWidth="150.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="nom" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Adresse" prefWidth="200.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="adresse" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Age" prefWidth="70.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="age" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Departement" prefWidth="150.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="departementName" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </VBox>
+    </children>
+</VBox>
